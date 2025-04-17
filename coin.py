@@ -5,6 +5,7 @@
 ####################################
 from random import randint
 
+
 ####################################
 #
 #   Initialize Variables and Actors
@@ -22,6 +23,9 @@ fox.pos = 100, 100
 coin = Actor("coin")
 coin.pos = 200, 200
 
+hedgehog = Actor("hedgehog")
+hedgehog.pos = 300, 300
+
 ####################################
 #
 #   Main Draw Function
@@ -32,6 +36,7 @@ def draw():
     screen.fill("green")
     fox.draw()
     coin.draw()
+    hedgehog.draw()
     screen.draw.text(f"Score: {score}", color = "black", topleft = (10,10))
 
     if game_over:
@@ -54,21 +59,33 @@ def time_up():
 
 def update():
     global score
-    
+
+    # Fox Movement
     if keyboard.left:
-        fox.x = fox.x - 2
+        fox.x -= 2
     elif keyboard.right:
-        fox.x = fox.x + 2
+        fox.x += 2
     elif keyboard.up:
-        fox.y = fox.y -2
+        fox.y -= 2
     elif keyboard.down:
-        fox.y = fox.y + 2
+        fox.y += 2
 
-    coin_collected = fox.colliderect(coin)
+    # Hedgehog Movement
+    if hedgehog.x < coin.x:
+        hedgehog.x += 1
+    elif hedgehog.x > coin.x:
+        hedgehog.x -= 1
+    if hedgehog.y < coin.y:
+        hedgehog.y += 1
+    elif hedgehog.y > coin.y:
+        hedgehog.y -= 1
 
-    if coin_collected:
+    #Coin Collection Logic  
+    if fox.colliderect(coin):
         score += 10
         place_coin()
+    elif hedgehog.colliderect(coin):
+        place_coin()
 
-clock.schedule(time_up, 7.0)
+clock.schedule(time_up, 30.0)
 place_coin()
