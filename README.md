@@ -2,7 +2,8 @@
 
 A simple, arcade-style game made with [Python](https://www.python.org/) and [Pygame Zero](https://pygame-zero.readthedocs.io/en/stable/). Collect coins while avoiding the hedgehog — how high can you score before time runs out?
 
-![screenshot or game gif here if you have one]
+![Gameplay Screenshot](images/Screenshot1.png)
+
 
 ---
 
