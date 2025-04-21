@@ -46,7 +46,7 @@ pgzrun main.py
 
 You can download a standalone `.exe`:
 
-1. Go to the [Releases](https://github.com/your-username/coin-collector/releases) tab
+1. Go to the [Releases](https://github.com/Johnmcginnes168/Coin-Collecting-Game/releases/tag/V1.0) tab
 2. Download the latest `CoinCollector.exe`
 3. Double-click to play!
 
